@@ -1,0 +1,33 @@
+server:
+   port: 8083
+   servlet:
+      contextPath: /qa
+      
+spring:
+   datasource:
+      url: jdbc:h2:~/db/qa.db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+      database: qa
+      user: SA
+      password:
+      driver-class-name: org.h2.Driver
+   liquibase:
+      changeLog: classpath:config/liquibase/db-changelog.xml
+      url: jdbc:h2:~/db/qa.db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+      user: SA
+      password:
+   jpa:
+      database-platform: org.hibernate.dialect.H2Dialect
+      properties:
+         hibernate:
+            temp:
+               use_jdbc_metadata_defaults: false
+      hibernate:
+         ddl-auto: none
+   hibernate:
+      show_sql: true
+      use_sql_comments: true
+      format_sql: true
+      
+application:
+   flavor: angular
+   version: 0.0.1

@@ -1,22 +1,22 @@
 server:
-   port: 8083
+   port: 11003
    servlet:
       contextPath: /qa-tool
       
 spring:
    datasource:
-      url: jdbc:h2:~/db/dev/qa.db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+      url: jdbc:oracle:thin:@localhost:1521:qa
       database: qa
-      user: SA
-      password:
-      driver-class-name: org.h2.Driver
+      user: qa
+      password: qa
+      driver-class-name: oracle.jdbc.driver.OracleDriver
    liquibase:
       changeLog: classpath:config/liquibase/db-changelog.xml
-      url: jdbc:h2:~/db/dev/qa.db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-      user: SA
-      password:
+      url: jdbc:oracle:thin:@localhost:1521:qa
+      user: qa
+      password: qa
    jpa:
-      database-platform: org.hibernate.dialect.H2Dialect
+      database-platform: org.hibernate.dialect.Oracle12cDialect
       properties:
          hibernate:
             temp:

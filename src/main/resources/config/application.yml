@@ -3,4 +3,22 @@ spring:
    name: application-dev
    environment: dev
    servers: 
-   - www.indigenous.dev.in/qa
+   - www.indigenous.dev.in/qa-tool
+   
+---
+
+spring:
+   profiles: qa
+   name: application-qa
+   environment: qa
+   servers: 
+   - www.indigenous.qa.in/qa-tool
+   
+---
+
+spring:
+   profiles: prod
+   name: application-prod
+   environment: prod
+   servers: 
+   - www.indigenous.in/qa-tool
